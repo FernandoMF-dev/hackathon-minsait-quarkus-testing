@@ -8,6 +8,11 @@ import java.util.List;
 @ApplicationScoped
 public class MovieRepository implements PanacheRepository<Movie> {
 
+  /**
+   * Finds all movies whose country is equal to the `country` parameter
+   * @param country The country to search for movies
+   * @return A list of movies from the specified country
+  */
   public List<Movie> findByCountry(String country) {
     return list("SELECT m FROM Movie m WHERE m.country = ?1 ORDER BY id DESC", country);
   }
